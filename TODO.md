@@ -1,0 +1,1 @@
+- [x] Step 1: Fix broken WhatsApp SVG tag in .social-icons&#10;- [x] Step 2: Uncomment .footer-contact and add WhatsApp button with number text&#10;- [x] Step 3: Verify changes

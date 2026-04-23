@@ -1,0 +1,114 @@
+/* Custom Cursor Styles - Purple Theme */
+
+/* Hide default cursor */
+body {
+  cursor: none !important;
+}
+
+/* Main cursor dot */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, #6366f1 25%, #8b5cf6 60%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999 !important;
+  /* mix-blend-mode: difference; */ /* Disabled for visibility */
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  will-change: transform;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+    0 0 12px rgba(99, 102, 241, 0.8),
+    inset 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 4px rgba(99, 102, 241, 0.9);
+}
+
+/* Ring follower */
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999998 !important;
+  /* backdrop-filter: blur(8px); */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  transform: translate(-50%, -50%);
+}
+
+/* Hover states */
+.cursor.hover {
+  transform: scale(1.8) !important;
+  background: radial-gradient(circle, #ffffff 20%, #a855f7 50%, #6366f1 70%) !important;
+  box-shadow: 
+    0 0 20px rgba(99, 102, 241, 1),
+    0 0 40px rgba(139, 92, 246, 0.6),
+    inset 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+.cursor-follower.hover {
+  transform: scale(1.8) !important;
+  box-shadow: 
+    0 0 30px rgba(99, 102, 241, 0.6);
+}
+
+/* Bubble trails */
+.cursor-bubble {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.8) 40%, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  animation-delay: var(--bubble-delay, 0s);
+}
+
+/* Click ripple */
+.cursor-ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99997;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Responsive: reduce on mobile */
+@media (max-width: 768px) {
+  .cursor {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .cursor-follower {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Ensure cursor works over interactive elements */
+a, button, [class*="btn"], [class*="card"], .nav-menu a {
+  cursor: none !important;
+}
+
